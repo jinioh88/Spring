@@ -2,14 +2,14 @@
  * AutoWired 적용
  * id 보다 type이 우선시 된다. 
  */
-package ex04;
+package ex06;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Driver {
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("ex04/expert003.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("ex06/expert003.xml");
 
 		//Car car = (Car)context.getBean("car");
 		Car car = context.getBean("car", Car.class);
