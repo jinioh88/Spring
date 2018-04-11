@@ -1,7 +1,7 @@
-package export02;
+package expert002;
 
 public class KoreaTire implements Tire {
 	public String getBrand() {
-		return "±¹»ê¹ÙÄû";
+		return "ì½”ë¦¬?•„ ???´?–´";
 	}
 }

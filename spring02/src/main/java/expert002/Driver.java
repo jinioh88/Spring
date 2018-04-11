@@ -1,4 +1,4 @@
-package export02;
+package expert002;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -6,8 +6,9 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class Driver {
 	public static void main(String[] args) {
-		
-		ApplicationContext context = new ClassPathXmlApplicationContext("export02/mal.xml");
+		//ApplicationContext context = new FileSystemXmlApplicationContext("src/main/java/expert002/expert002.xml");
+		//ApplicationContext context = new ClassPathXmlApplicationContext("expert002.xml", Driver.class);
+		ApplicationContext context = new ClassPathXmlApplicationContext("expert002/expert002.xml");
 
 		// Car car = (Car)context.getBean("car");
 		Car car = context.getBean("car", Car.class);

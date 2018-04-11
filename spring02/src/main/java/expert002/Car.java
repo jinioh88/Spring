@@ -1,11 +1,7 @@
-package export02;
+package expert002;
 
 public class Car {
 	Tire tire;
-
-	public Car(Tire tire1) {
-		this.tire = tire1;
-	}
 
 	public Tire getTire() {
 		return tire;
@@ -16,6 +12,6 @@ public class Car {
 	}
 
 	public String getTireBrand() {
-		return "ë°”í€´ì¢…ë¥˜: " + tire.getBrand();
+		return "?¥ì°©ëœ ???´?–´: " + tire.getBrand();
 	}
 }
