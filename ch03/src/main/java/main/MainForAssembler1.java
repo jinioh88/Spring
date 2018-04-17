@@ -1,4 +1,4 @@
-package spring;
+package main;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,16 @@ import java.io.InputStreamReader;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-public class MainForAssembler {
+import spring.AlreadyExistingMemberException;
+import spring.Assembler;
+import spring.ChangePasswordService;
+import spring.IdpasswordNotMatchingException;
+import spring.MemberListPrinter;
+import spring.MemberNotFoundException;
+import spring.MemberRegisterService;
+import spring.RegisterRequest;
+
+public class MainForAssembler1 {
 	
 	private static ApplicationContext ctx = null;
 
@@ -29,9 +38,6 @@ public class MainForAssembler {
 				continue;
 			}else if(command.equals("list")) {
 				processListCommand();
-				continue;
-			} else if(command.startsWith("info")) {
-				processInfoCommand(command.split(" "));
 				continue;
 			}
 //			printHelp();
@@ -83,10 +89,5 @@ public class MainForAssembler {
 	private static void processListCommand() {
 		MemberListPrinter listPrinter = ctx.getBean("listPrinter",MemberListPrinter.class);
 		listPrinter.printAll();
-	}
-	
-	private static void processInfoCommand(String[] arg) {
-		MemberInfoPrinter infoPrinter = ctx.getBean("infoPrinter",MemberInfoPrinter.class);
-		infoPrinter.printMemberInfo(arg[1]);
 	}
 }

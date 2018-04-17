@@ -10,7 +10,7 @@ public class MemberRegisterService {
 	}
 	
 	public void register(RegisterRequest req) {
-		Member member = memberDao.selectEmail(req.getEmail());
+		Member member = memberDao.selectByEmail(req.getEmail());
 		if(member!=null) {
 			throw new AlreadyExistingMemberException("dup email"+req.getEmail());
 		}

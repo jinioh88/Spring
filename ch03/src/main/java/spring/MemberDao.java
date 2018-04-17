@@ -8,7 +8,7 @@ public class MemberDao {
 	private static long nextId = 0;
 	private Map<String,Member> map = new HashMap<>();
 	
-	public Member selectEmail(String email) {
+	public Member selectByEmail(String email) {
 		return map.get(email);
 	}
 	

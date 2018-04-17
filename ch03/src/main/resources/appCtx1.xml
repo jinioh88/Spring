@@ -24,5 +24,8 @@
 	<bean id="memberPrinter" class="spring.MemberPrinter">
 	</bean>
 	
- 
+	<bean id="infoPrinter" class="spring.MemberInfoPrinter">
+	  <property name="memberDao" ref="memberDao"/>
+	  <property name="printer" ref="memberPrinter"/>
+ 	</bean>
  </beans>
