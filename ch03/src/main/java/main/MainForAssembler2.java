@@ -1,18 +1,20 @@
-package spring;
+package main;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.GenericXmlApplicationContext;
+import spring.AlreadyExistingMemberException;
+import spring.Assembler;
+import spring.ChangePasswordService;
+import spring.IdpasswordNotMatchingException;
+import spring.MemberNotFoundException;
+import spring.MemberRegisterService;
+import spring.RegisterRequest;
 
-public class MainForAssembler {
-	
-	private static ApplicationContext ctx = null;
+public class MainForAssembler2 {
 
 	public static void main(String[] args) throws IOException {
-		ctx = new GenericXmlApplicationContext("classpath:appCtx1.xml");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		while(true) {
 			System.out.println("명령어 입력 : ");
@@ -39,7 +41,7 @@ public class MainForAssembler {
 //			printHelp();
 			return;
 		}
-		MemberRegisterService regSvc = ctx.getBean("memberRegSvc",MemberRegisterService.class);
+		MemberRegisterService regSvc = assembler.getRegisterService();
 		RegisterRequest req = new RegisterRequest();
 		req.setEmail(arg[1]);
 		req.setName(arg[2]);
@@ -63,7 +65,7 @@ public class MainForAssembler {
 //			printHelp();
 			return;
 		}
-		ChangePasswordService changePwdSvc =ctx.getBean("changePwdSvc",ChangePasswordService.class);
+		ChangePasswordService changePwdSvc =assembler.getChangePasswordService();
 		try {
 			changePwdSvc.changePassword(arg[1], arg[2], arg[3]);
 			System.out.println("암호 변경\n");
