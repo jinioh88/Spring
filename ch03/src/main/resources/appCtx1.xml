@@ -15,4 +15,14 @@
 	<bean id="changePwdSvc" class="spring.ChangePasswordService">
 		<constructor-arg ref="memberDao" />
 	</bean>
-</beans>
+
+	<bean id="listPrinter" class="spring.MemberListPrinter">
+		<constructor-arg ref="memberDao" />
+		<constructor-arg ref="memberPrinter" />
+	</bean>
+	
+	<bean id="memberPrinter" class="spring.MemberPrinter">
+	</bean>
+	
+ 
+ </beans>

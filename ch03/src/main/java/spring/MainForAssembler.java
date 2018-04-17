@@ -27,6 +27,9 @@ public class MainForAssembler {
 			} else if(command.startsWith("change")) {
 				processChangeCommand(command.split(" "));
 				continue;
+			}else if(command.equals("list")) {
+				processListCommand();
+				continue;
 			}
 //			printHelp();
 		}
@@ -72,5 +75,10 @@ public class MainForAssembler {
 		} catch(IdpasswordNotMatchingException e) {
 			System.out.println("임일과 암호가 일치하지 않음\n");
 		}
+	}
+	
+	private static void processListCommand() {
+		MemberListPrinter listPrinter = ctx.getBean("listPrinter",MemberListPrinter.class);
+		listPrinter.printAll();
 	}
 }
