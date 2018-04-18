@@ -3,16 +3,19 @@ package main;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import config.JavaMainConf;
+import config.ConfigPart1;
+import config.ConfigPart2;
 import spring.MemberInfoPrinter;
 import spring.MemberRegisterService;
 import spring.RegisterRequest;
 
-public class Main {
+public class Main3 {
 
 	public static void main(String[] args) {
-
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(JavaMainConf.class); 
+//		ApplicationContext ctx = 
+//				new AnnotationConfigApplicationContext(JavaConfig2.class);
+		// 두개 받기
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigPart1.class,ConfigPart2.class); 
 				MemberRegisterService regSvc = 
 				ctx.getBean("memberRegSvc", MemberRegisterService.class);
 		MemberInfoPrinter infoPrinter = 
