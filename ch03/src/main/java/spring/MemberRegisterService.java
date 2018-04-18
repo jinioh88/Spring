@@ -2,12 +2,17 @@ package spring;
 
 import java.util.Date;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class MemberRegisterService {
+	@Resource(name="memberDao")
 	private MemberDao memberDao;
 	
-	@Autowired
+	public MemberRegisterService() {}
+	
+	//@Autowired
 	public MemberRegisterService(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}
