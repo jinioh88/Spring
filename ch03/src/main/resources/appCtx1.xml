@@ -21,15 +21,17 @@
 
 	<bean id="listPrinter" class="spring.MemberListPrinter">
 		<constructor-arg ref="memberDao" />
-		<constructor-arg ref="memberPrinter" />
+		<constructor-arg ref="printer1" />
 	</bean>
 	
-	<bean id="memberPrinter" class="spring.MemberPrinter">
+	<bean id="printer1" class="spring.MemberPrinter">
+		<qualifier value="sysout"/>
+	</bean>
+	
+	<bean id="printer2" class="spring.MemberPrinter">
 	</bean>
 	
 	<bean id="infoPrinter" class="spring.MemberInfoPrinter">
-	  <property name="memberDao" ref="memberDao"/>
-	  <property name="printer" ref="memberPrinter"/>
  	</bean>
  	
  	<bean id="versionPrinter" class="spring.VersionPrinter">
