@@ -4,11 +4,21 @@ import java.util.Arrays;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 
+@Aspect
 public class ExeTimeAspect2 {
-  public Object measure(ProceedingJoinPoint joinPoint) throws Throwable{
-    long start = System.nanoTime();
+  
+  @Pointcut("execution(public * chap07..*(..))")
+  private void publicTarget() {
     
+  }
+  
+  @Around("publicTarget()")
+  public Object measoure(ProceedingJoinPoint joinPoint) throws Throwable{
+    long start = System.nanoTime();
     try {
       Object result = joinPoint.proceed();
       return result;
@@ -19,4 +29,6 @@ public class ExeTimeAspect2 {
           sig.getName(),Arrays.toString(joinPoint.getArgs()),(finish-start));
     }
   }
+  
+  
 }
