@@ -38,4 +38,6 @@
 		<constructor-arg name="sqlSessionFactory"
 			ref="sqlSessionFactory"></constructor-arg>
 	</bean>
+	
+	<context:component-scan base-package="org.zero.persistence"></context:component-scan>
 </beans>
