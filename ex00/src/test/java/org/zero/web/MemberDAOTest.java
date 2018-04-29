@@ -6,8 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.zero.domain.MemberVO;
-import org.zero.persistence.MemberDAO;
+import org.zerock.domain.MemberVO;
+import org.zerock.persistence.MemberDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= {"file:src/main/webapp/WEB-INF/spring/**/root-context.xml"})
@@ -16,8 +16,10 @@ public class MemberDAOTest {
 	private MemberDAO dao;
 	
 	@Test
-	public void testTime()throws Exception {
+	public void testTime()throws Exception{
+		
 		System.out.println(dao.getTime());
+		
 	}
 	
 	@Test
