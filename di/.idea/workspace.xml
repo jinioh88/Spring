@@ -68,12 +68,11 @@
       <file leaf-file-name="AuthFailLogger.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/mav/AuthFailLogger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+            <state relative-caret-position="270">
+              <caret line="18" column="44" lean-forward="true" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
               <folding>
                 <element signature="e#352#353#0" expanded="true" />
                 <element signature="e#388#389#0" expanded="true" />
-                <element signature="e#452#453#0" expanded="true" />
                 <element signature="e#494#495#0" expanded="true" />
               </folding>
             </state>
@@ -286,12 +285,12 @@
       <workItem from="1530440791171" duration="71000" />
       <workItem from="1530440872811" duration="232000" />
       <workItem from="1530442210817" duration="214000" />
-      <workItem from="1530442488336" duration="518000" />
+      <workItem from="1530442488336" duration="834000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1667000" />
+    <option name="totallyTimeSpent" value="1983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="719" extended-state="6" />
@@ -553,12 +552,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/mav/AuthFailLogger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+        <state relative-caret-position="270">
+          <caret line="18" column="44" lean-forward="true" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
           <folding>
             <element signature="e#352#353#0" expanded="true" />
             <element signature="e#388#389#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
             <element signature="e#494#495#0" expanded="true" />
           </folding>
         </state>
