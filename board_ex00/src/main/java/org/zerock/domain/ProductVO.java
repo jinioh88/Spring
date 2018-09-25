@@ -1,4 +1,4 @@
-package org.zrock.domain;
+package org.zerock.domain;
 
 public class ProductVO {
 	private String name;

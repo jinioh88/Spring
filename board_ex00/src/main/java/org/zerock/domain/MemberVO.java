@@ -1,10 +1,11 @@
-package org.zrock.domain;
+package org.zerock.domain;
 
 import java.util.Date;
 
 public class MemberVO {
 	 private String userid;
 	 private String userpw;
+	 private String username;
 	 private String email;
 	 private Date regdate;
 	 private Date updatedate;
@@ -37,6 +38,13 @@ public class MemberVO {
 	}
 	public void setUpdatedate(Date updatedate) {
 		this.updatedate = updatedate;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	@Override
 	public String toString() {
