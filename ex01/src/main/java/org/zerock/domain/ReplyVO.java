@@ -5,7 +5,7 @@ import java.util.Date;
 public class ReplyVO {
 	private Integer rno;
 	private Integer bno;
-	private String replytest;
+	private String replytext;
 	private String replyer;
 	private Date regdate;
 	private Date updatedate;
@@ -21,11 +21,11 @@ public class ReplyVO {
 	public void setBno(Integer bno) {
 		this.bno = bno;
 	}
-	public String getReplytest() {
-		return replytest;
+	public String getReplytext() {
+		return replytext;
 	}
-	public void setReplytest(String replytest) {
-		this.replytest = replytest;
+	public void setReplytext(String replytest) {
+		this.replytext = replytest;
 	}
 	public String getReplyer() {
 		return replyer;
@@ -47,7 +47,7 @@ public class ReplyVO {
 	}
 	@Override
 	public String toString() {
-		return "ReplyVO [rno=" + rno + ", bno=" + bno + ", replytest=" + replytest + ", replyer=" + replyer
+		return "ReplyVO [rno=" + rno + ", bno=" + bno + ", replytext=" + replytext + ", replyer=" + replyer
 				+ ", regdate=" + regdate + ", updatedate=" + updatedate + "]";
 	}
 }
