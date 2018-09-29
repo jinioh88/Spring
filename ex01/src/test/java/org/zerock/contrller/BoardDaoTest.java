@@ -15,6 +15,7 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
+import org.zerock.domain.SearchCriteria;
 import org.zerock.persistence.BoardDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -70,39 +71,56 @@ public class BoardDaoTest {
 //			logger.info(boardVO.getBno()+ ":"+ boardVO.getTitle());
 //	}
 	
+//	@Test
+//	public void testlistCriteria() throws Exception{
+//		Criteria cri = new Criteria();
+//		cri.setPage(2);
+//		cri.setPerPageNum(20);
+//		
+//		List<BoardVO> list = dao.listCriteria(cri);
+//		
+//		System.out.println("=====================");
+//		for(BoardVO boardVO : list) {
+//			logger.info(boardVO.getBno() +":"+ boardVO.getTitle());
+//		}
+//		System.out.println("=-------------------------");
+//	}
+//	
+//	@Test
+//	public void testURI() throws Exception {
+//		UriComponents uriComponents = UriComponentsBuilder.newInstance().path("/board/read")
+//																		.queryParam("bno", 12)
+//																		.queryParam("perPageNum", 20)
+//																		.build();
+//		logger.info("board/read?bno=12?perPageNum=20");
+//		logger.info(uriComponents.toString());
+//	}
+//	
+//	@Test
+//	public void testURI2() throws Exception {
+//		UriComponents uriComponents = UriComponentsBuilder.newInstance().path("/{module}/{page}")
+//																		.queryParam("bno", 12)
+//																		.queryParam("perPageNum", 20)
+//																		.build()
+//																		.expand("board","read").encode();
+//		logger.info("board/read?bno=12?perPageNum=20");
+//		logger.info(uriComponents.toString());
+//	}
+	
 	@Test
-	public void testlistCriteria() throws Exception{
-		Criteria cri = new Criteria();
-		cri.setPage(2);
-		cri.setPerPageNum(20);
+	public void testDynamic1() throws Exception {
+		SearchCriteria cri = new SearchCriteria();
+		cri.setPage(1);
+		cri.setKeyword("33");
+		cri.setSearchType("t");
 		
-		List<BoardVO> list = dao.listCriteria(cri);
+		logger.info("================================");
 		
-		System.out.println("=====================");
-		for(BoardVO boardVO : list) {
-			logger.info(boardVO.getBno() +":"+ boardVO.getTitle());
+		List<BoardVO> list = dao.listSearch(cri);
+		for(BoardVO vo : list) {
+			logger.info(vo.getBno()+":"+vo.getTitle());
 		}
-		System.out.println("=-------------------------");
-	}
-	
-	@Test
-	public void testURI() throws Exception {
-		UriComponents uriComponents = UriComponentsBuilder.newInstance().path("/board/read")
-																		.queryParam("bno", 12)
-																		.queryParam("perPageNum", 20)
-																		.build();
-		logger.info("board/read?bno=12?perPageNum=20");
-		logger.info(uriComponents.toString());
-	}
-	
-	@Test
-	public void testURI2() throws Exception {
-		UriComponents uriComponents = UriComponentsBuilder.newInstance().path("/{module}/{page}")
-																		.queryParam("bno", 12)
-																		.queryParam("perPageNum", 20)
-																		.build()
-																		.expand("board","read").encode();
-		logger.info("board/read?bno=12?perPageNum=20");
-		logger.info(uriComponents.toString());
+		logger.info("=================================");
+		logger.info("Count: "+dao.listSearchCount(cri));
 	}
 }
