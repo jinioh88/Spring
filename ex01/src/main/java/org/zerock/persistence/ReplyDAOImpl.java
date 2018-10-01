@@ -42,7 +42,7 @@ public class ReplyDAOImpl implements ReplyDAO {
 		Map<String, Object> paramMap = new HashMap<>();
 		paramMap.put("bno", bno);
 		paramMap.put("cri", cri);
-		return session.selectList(namespace+".listPage");
+		return session.selectList(namespace+".listPage",paramMap);
 	}
 
 	@Override

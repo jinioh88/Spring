@@ -25,7 +25,7 @@ public class ReplyDAOTest {
 		vo.setBno(2);
 		vo.setRno(1);
 		vo.setReplyer("user00");
-		vo.setReplytext("reply eee");
+		vo.setReplytext("reply eee2");
 		
 		dao.create(vo);
 	}
