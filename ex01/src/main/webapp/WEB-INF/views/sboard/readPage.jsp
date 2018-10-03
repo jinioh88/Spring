@@ -89,7 +89,7 @@
 				<!-- timeline time label -->
 				<li class="time-label" id="repliesDiv">
 		  <span class="bg-green">
-		    <%--Replies List <small id='replycntSmall'> [ ${boardVO.replycnt} ] </small>--%>
+		    Replies List<small id='replycntSmall'>[ ${boardVO.replycnt} ]</small>
 		    </span>
 				</li>
 			</ul>

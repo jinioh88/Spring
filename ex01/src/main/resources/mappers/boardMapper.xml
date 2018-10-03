@@ -34,7 +34,7 @@
 	
 	<select id="listCriteria" resultType="BoardVO">
 	<![CDATA[
-	select bno, title, content, writer, regdate, viewcnt from tbl_board where bno>0 order by bno desc, regdate desc limit #{pageStart},#{perPageNum}
+	select bno, title, content, writer, regdate, viewcnt, replycnt from tbl_board where bno>0 order by bno desc, regdate desc limit #{pageStart},#{perPageNum}
 	]]>
 	</select>
 	
@@ -83,4 +83,12 @@
 	]]>
 	<include refid="search"></include>
 	</select>
+	
+	<update id="updateReplyCnt">
+		update tbl_board set replycnt = (select count(rno) from tbl_reply where bno=tbl_board.bno) where bno>0
+	</update>
+	
+	<update id="updateViewCnt">
+	update tbl_board set viewcnt = viewcnt+1 where bno=#{bno}
+	</update>
 </mapper>  
