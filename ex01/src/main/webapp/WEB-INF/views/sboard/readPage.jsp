@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-		 pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>   
 <%@include file="../include/header.jsp"%>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <!-- Main content -->
@@ -44,8 +46,12 @@
 				<!-- /.box-body -->
 
 				<div class="box-footer">
+				<ul class="mailbox-attachements clearfix uploadedList">
+				</ul>
+				<c:if test="${login.uid==boardVO.writer}">
 					<button type="submit" class="btn btn-warning" id="modifyBtn">Modify</button>
 					<button type="submit" class="btn btn-danger" id="removeBtn">REMOVE</button>
+				</c:if>
 					<button type="submit" class="btn btn-primary" id="goListBtn">GO LIST </button>
 				</div>
 
@@ -68,6 +74,7 @@
 				<div class="box-header">
 					<h3 class="box-title">ADD NEW REPLY</h3>
 				</div>
+				<c:if test="${not empty login}">
 				<div class="box-body">
 					<label for="exampleInputEmail1">Writer</label>
 					<input class="form-control" type="text" placeholder="USER ID"
@@ -81,6 +88,12 @@
 					<button type="button" class="btn btn-primary" id="replyAddBtn">ADD
 						REPLY</button>
 				</div>
+				</c:if>
+				<c:if test="${empty login}">
+					<div class="box-body">
+						<div><a href="javascript:goLogin();">Login Please</a></div>
+					</div>
+				</c:if>
 			</div>
 
 
@@ -131,27 +144,36 @@
 
 </section>
 <!-- /.content -->
-
 <script id="template" type="text/x-handlebars-template">
-	{{#each .}}
-	<li class="replyLi" data-rno={{rno}}>
-		<i class="fa fa-comments bg-blue"></i>
-		<div class="timeline-item" >
-  <span class="time">
-    <i class="fa fa-clock-o"></i>{{prettifyDate regdate}}
-  </span>
-			<h3 class="timeline-header"><strong>{{rno}}</strong> -{{replyer}}</h3>
-			<div class="timeline-body">{{replytext}} </div>
-			<div class="timeline-footer">
-				<a class="btn btn-primary btn-xs"
-				   data-toggle="modal" data-target="#modifyModal">Modify</a>
-			</div>
-		</div>
-	</li>
-	{{/each}}
+				{{#each .}}
+	         <li class="replyLi" data-rno={{rno}}>
+             <i class="fa fa-comments bg-blue"></i>
+             <div class="timeline-item" >
+                <span class="time">
+                  <i class="fa fa-clock-o"></i>{{prettifyDate regdate}}
+                </span>
+                <h3 class="timeline-header"><strong>{{rno}}</strong> -{{replyer}}</h3>
+                <div class="timeline-body">{{replytext}} </div>
+								<div class="timeline-footer">
+								{{#eqReplyer replyer }}
+                  <a class="btn btn-primary btn-xs" 
+									data-toggle="modal" data-target="#modifyModal">Modify</a>
+								{{/eqReplyer}}
+							  </div>
+	            </div>			
+           </li>
+        {{/each}}
 </script>
 
 <script>
+	Handlebars.registerHelper("eqReplyer", function(replyer, block){
+		var accum='';
+		if(replyer=='${login.uid}') {
+			accum+=block.fn();
+		}
+		return accum;
+	});
+
     Handlebars.registerHelper("prettifyDate", function(timeValue) {
         var dateObj = new Date(timeValue);
         var year = dateObj.getFullYear();

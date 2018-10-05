@@ -1,12 +1,19 @@
 package org.zerock.interceptor;
 
+import javax.inject.Inject;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.util.WebUtils;
+import org.zerock.domain.UserVO;
+import org.zerock.service.UserService;
 
 public class AuthInterceptor extends HandlerInterceptorAdapter{
+	@Inject
+	private UserService service;
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -14,10 +21,37 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 		HttpSession session = request.getSession();
 		
 		if(session.getAttribute("login")==null) {
+			saveDest(request);
+			
+			Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
+			if(loginCookie!=null) {
+				UserVO userVO = service.checkLoginBefore(loginCookie.getValue());
+				
+				if(userVO!=null) {
+					session.setAttribute("login", userVO);
+					return true;
+				}
+			}
 			response.sendRedirect("/user/login");
 			return false;
 		}
 		return true;
+	}
+	
+	private void saveDest(HttpServletRequest req) {
+		String uri = req.getRequestURI();
+		
+		String query = req.getQueryString();
+		
+		if(query==null || query.equals("null")){
+			query="";
+		} else {
+			query = "?"+query;
+		}
+		
+		if(req.getMethod().equals("GET")) {
+			req.getSession().setAttribute("dest", uri+query);
+		}
 	}
 	
 }
