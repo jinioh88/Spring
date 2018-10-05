@@ -72,7 +72,7 @@ public class SearchBaordController {
 		return "redirect:/sboard/list";
 	}
 	
-	@RequestMapping(value="/reister", method=RequestMethod.GET)
+	@RequestMapping(value="/register", method=RequestMethod.GET)
 	public void registerGET() throws Exception {
 		logger.info("register get");
 	}
