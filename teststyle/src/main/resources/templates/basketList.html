@@ -10,24 +10,24 @@
 <div>
     <h2>스타일쉐어 장바구니</h2>
     <table border="1">
-        <h5><span id="totPrice" >가격</span> </h5>
+
         <thead>
             <tr>
-             <th>상품명</th> <th>가격</th> <th>색상</th> <th>사이즈</th> <th>수량</th>
+             <th>상품명</th> <th>가격</th> <th>색상</th> <th>사이즈</th> <th>수량</th> <th>가격</th>
             </tr>
         </thead>
         <tbody   th:each="list:${list}">
             <tr>
                 <td>[[${list.goods.name}]]</td>
-                <td id="price">[[${list.goods.price}]]</td>
+                <td>[[${list.goods.price}]]</p></td>
                 <td>[[${list.option.color}]]</td>
                 <td>[[${list.option.size}]]</td>
                 <td id="quantity">[[${list.quantity}]]</td>
+                <td>[[${#numbers.formatCurrency(list.goods.price * list.quantity)}]]</td>
             </tr>
         </tbody>
     </table>
     <div>
-        <!--<h5><span id="totalPrice" th:text="${#price}"></span> </h5>-->
     </div>
 </div>
 <script>
