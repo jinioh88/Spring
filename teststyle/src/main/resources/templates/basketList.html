@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>스타일쉐어 입니다</title>
+</head>
+<body>
+<div>
+    <h2>스타일쉐어 장바구니</h2>
+    <table border="1">
+        <h5><span id="totPrice" >가격</span> </h5>
+        <thead>
+            <tr>
+             <th>상품명</th> <th>가격</th> <th>색상</th> <th>사이즈</th> <th>수량</th>
+            </tr>
+        </thead>
+        <tbody   th:each="list:${list}">
+            <tr>
+                <td>[[${list.goods.name}]]</td>
+                <td id="price">[[${list.goods.price}]]</td>
+                <td>[[${list.option.color}]]</td>
+                <td>[[${list.option.size}]]</td>
+                <td id="quantity">[[${list.quantity}]]</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <!--<h5><span id="totalPrice" th:text="${#price}"></span> </h5>-->
+    </div>
+</div>
+<script>
+
+</script>
+
+</body>
+</html>
