@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a href="/accounts/create?form=">버튼</a>
+<form:form modelAttribute="accountCreateForm">
+    <span>이름</span><form:input path="account.name"/><br>
+    <span>번호</span><form:input path="card.no"/><br>
+</form:form>
+</body>
+</html>
