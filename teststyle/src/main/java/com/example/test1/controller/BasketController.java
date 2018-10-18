@@ -1,7 +1,6 @@
 package com.example.test1.controller;
 
 import com.example.test1.domain.BasketProduct;
-import com.example.test1.persistence.BasketRepository;
 import com.example.test1.service.BasketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +21,6 @@ public class BasketController {
     public String getBasketList(Model model) {
         List<BasketProduct> list = new ArrayList<>();
         list = service.getBasketList();
-
         model.addAttribute("list",list);
         return "basketList";
     }

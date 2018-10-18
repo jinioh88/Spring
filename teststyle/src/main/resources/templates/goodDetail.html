@@ -24,7 +24,6 @@
             <td>[[${list.color}]]</td>
             <td>[[${list.size}]]</td>
             <td><input type="number" th:id="quantity+${list.oid}" name="quantity" min="1" max="10"></td>
-            <!--<td><button type="button" th:onclick="'javascript:addBasketItem('+${vo.gid}+','+${list.oid}+')'"><samll>담기</samll></button></td>-->
             <td><a href="javascript:void(0);"  th:onclick="'javascript:addBasketItem('+${vo.gid}+','+${list.oid}+')'"><samll>담기</samll></a></td>
         </div>
     </tr>
@@ -36,7 +35,7 @@
 </body>
 <script>
     function addBasketItem(gid,oid) {
-        var stat = document.getElementById("quantity"+oid).value
+        var stat = document.getElementById("quantity"+oid).value;
         var quantity = parseInt(stat,10);
         var JSONObject= {
             "goodsId" : gid,

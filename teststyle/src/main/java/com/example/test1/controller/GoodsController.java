@@ -18,7 +18,6 @@ public class GoodsController {
     @Autowired
     GoodService service;
 
-    // 개별 보여주고 장바구니 담기 하기 개수, 옵션
     @GetMapping("/{id}")
     public String getGoods(@PathVariable Long id, Model model) {
         Goods goods = service.getGoods(id);

@@ -4,35 +4,57 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <title>스타일쉐어 입니다</title>
 </head>
 <body>
-<div>
     <h2>스타일쉐어 장바구니</h2>
     <table border="1">
-
         <thead>
             <tr>
              <th>상품명</th> <th>가격</th> <th>색상</th> <th>사이즈</th> <th>수량</th> <th>가격</th>
             </tr>
         </thead>
-        <tbody   th:each="list:${list}">
-            <tr>
+        <tbody >
+            <tr th:each="list:${list}">
+                <div>
                 <td>[[${list.goods.name}]]</td>
                 <td>[[${list.goods.price}]]</p></td>
                 <td>[[${list.option.color}]]</td>
                 <td>[[${list.option.size}]]</td>
-                <td id="quantity">[[${list.quantity}]]</td>
+                <td><input type="number" th:id="quantity1+${list.bid}" th:value="${list.quantity}"  min="1" max="10"></td>
+                <!--<td id="quantity">[[${list.quantity}]]</td>-->
                 <td>[[${#numbers.formatCurrency(list.goods.price * list.quantity)}]]</td>
+                <td><a href="javascript:void(0);"  th:onclick="'javascript:modBasketItem('+${list.bid}+')'"><samll>수정</samll></a></td>
+                </div>
             </tr>
         </tbody>
     </table>
     <div>
+        <a href="/goods/list">목록보기</a>
     </div>
-</div>
-<script>
-
-</script>
-
 </body>
+<script>
+    function modBasketItem(bid) {
+        var stat = document.getElementById("quantity1"+bid).value;
+        var quantity = parseInt(stat,10);
+        var JSONObject= {
+            "bid" : bid,
+            "quantity" : quantity
+        };
+        var jsonData = JSON.stringify( JSONObject );
+        $.ajax({
+            url : '/api/basket/mod/'+bid,
+            method : 'put',
+            data : jsonData,
+            dataType: "text",
+            contentType: "application/json",
+            success : function (data) {
+                if(data == "ok1"){
+                    alert("수정완료.");
+                }
+            }
+        });
+    }
+</script>
 </html>
