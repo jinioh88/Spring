@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e92ac3d-d08f-4334-ae72-7f7ec84bc2dc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../board_ex00/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../board_ex00/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../board_ex00/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../board_ex00/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../board_ex00/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,6 +17,7 @@
     <session id="-1797643051">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -135,12 +138,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1539925272298</updated>
-      <workItem from="1539925274963" duration="186000" />
+      <workItem from="1539925274963" duration="296000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186000" />
+    <option name="totallyTimeSpent" value="296000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
