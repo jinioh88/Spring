@@ -59,7 +59,7 @@
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.15</version>
@@ -83,7 +83,7 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
-
+ -->
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
